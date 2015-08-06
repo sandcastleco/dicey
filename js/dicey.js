@@ -27,10 +27,24 @@ function create() {
       generateNumber(numberOfSides);
       saveResult(rolls, number);
     }
+    showDice(rolls);
   }
 
   // Rolle six 4-sided dice
   rollDice(6, 4);
+
+  function showDice(array) {
+    for (var i = 0; i < array.length; i++) {
+      spacing = 800/array.length;
+      height = Math.random() * 400;
+      var die = game.add.text((i * spacing) + 40, height, array[i], { fill: '#FFF' });
+    }
+  }
+
+  // for (var i = 0; i < 12; i++) {
+  //   height = Math.random() * 600;
+  //   var die = game.add.text(i * 70, height, i, {fill: '#FFF' });
+  // }
 }
 
 function update() {

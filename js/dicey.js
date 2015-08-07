@@ -7,12 +7,14 @@ function preload() {
 var button;
 var number;
 var dice;
-var rolls = [];
 
 function create() {
+  // Put the title on the screen
   gameTitle = game.add.text(350, 300, 'Dicey', { fontSize: '50px', fill: '#FFF' });
-  dice = game.add.group();
+  // Put the button on the screen
   button = game.add.button(game.world.centerX - 50, 400, 'button', function() { rollDice(6, 4)}, this);
+  // Create an empty group of dice to show on screen
+  dice = game.add.group();
 }
 
 // Generate a random number between 1 and the chosen number of sides
@@ -26,17 +28,16 @@ function saveResult(array, result) {
   array.push(result);
 }
 
-function showDice(array) {
-  for (var i = 0; i < array.length; i++) {
-    spacing = 800/array.length;
-    height = Math.random() * 400;
-    var die = game.add.text((i * spacing) + 40, height, array[i], { fill: '#FFF' });
-    dice.add(die);
-  }
+// Add the die to the screen in an evenly spaced position and add it to the dice group
+function showDie(numberOfDice, dieID, number) {
+  spacing = game.width/numberOfDice;
+  height = Math.random() * game.height;
+  var die = game.add.text(dieID * spacing, height, number, { fill: '#FFF' });
+  dice.add(die);
 }
 
+// Remove the dice in the dice group
 function clearBoard() {
-  rolls = [];
   dice.destroy(true, true);
 }
 
@@ -46,12 +47,11 @@ function rollDice(numberOfDice, numberOfSides) {
   if (dice.length > 0) {
     clearBoard();
   }
-  rolls = [];
+  // For each die, generate its number based on its number of sides, then show it on the screen and add it to the group of dice
   for (var i = 0; i < numberOfDice; i++) {
     generateNumber(numberOfSides);
-    saveResult(rolls, number);
+    showDie(numberOfDice, i, number);
   }
-  showDice(rolls);
 }
 
 function update() {

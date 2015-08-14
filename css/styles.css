@@ -1,7 +1,7 @@
 body {
-  padding-top: 20px;
-  background-color: #E7E7E7;
+  background-color: #127629;
 }
+canvas { border-bottom: 0px none black; }
 #dicey {
   max-width: 800px;
   margin-left: auto;

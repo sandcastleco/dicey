@@ -15,6 +15,9 @@ module.exports = function(grunt) {
       },
       css: {
         files: ['css/**/*.css']
+      },
+      audio: {
+        files: ['audio/**/*.mp3']
       }
     }
   });

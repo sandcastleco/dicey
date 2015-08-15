@@ -1,8 +1,10 @@
-{
-  "challenge1": {
-    "name": "Six Four-Sided Dice"
+[
+  {
+    "name": "Six Four-Sided Dice",
+    "description": "Estimate the sum of six four-sided dice in under 3 seconds."
   },
-  "challenge2": {
-    "name": "Many Six-Sided Dice"
+  {
+    "name": "Many Six-Sided Dice",
+    "description": "Estimate how many dice there are total in under 4 seconds."
   }
-}
+]

@@ -3,7 +3,9 @@ var playState = {
   create: function() {
     // Create an empty group of dice to show on screen
     dice = game.add.group();
-    this.rollDice(selectedChallenge.numberOfDice, selectedChallenge.sides);
+    var rollButton = game.add.button(80, 500, '', this.rollDice, this);
+    var rollText = game.add.text(0, 0, "Roll 'em!", { font: '30px Bree', fill: '#FFF'});
+    rollButton.addChild(rollText);
   },
 
   // Generate a random number between 1 and the chosen number of sides
@@ -31,15 +33,15 @@ var playState = {
   },
 
   // Roll a chosen number of X-sided dice
-  rollDice: function(numberOfDice, numberOfSides) {
+  rollDice: function() {
     // If there was a previous roll, clear it out
     if (dice.length > 0) {
       this.clearBoard();
     }
     // For each die, generate its number based on its number of sides, then show it on the screen and add it to the group of dice
-    for (var i = 0; i < numberOfDice; i++) {
-      this.generateNumber(numberOfSides);
-      this.showDie(numberOfDice, i, number);
+    for (var i = 0; i < selectedChallenge.numberOfDice; i++) {
+      this.generateNumber(selectedChallenge.numberOfSides);
+      this.showDie(selectedChallenge.numberOfDice, i, number);
     }
   }
 }

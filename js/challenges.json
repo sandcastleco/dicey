@@ -3,12 +3,12 @@
     "name": "Six Four-Sided Dice",
     "description": "Estimate the sum of six four-sided dice in under 3 seconds.",
     "numberOfDice": 6,
-    "sides": 4
+    "numberOfSides": 4
   },
   {
     "name": "Many Six-Sided Dice",
     "description": "Estimate how many dice there are total in under 4 seconds.",
     "numberOfDice": 25,
-    "sides": 6
+    "numberOfSides": 6
   }
 ]

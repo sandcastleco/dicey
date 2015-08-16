@@ -43,5 +43,18 @@ var playState = {
       this.generateNumber(selectedChallenge.numberOfSides);
       this.showDie(selectedChallenge.numberOfDice, i, number);
     }
+
+    this.startTimer();
+  },
+
+  startTimer: function() {
+    setTimeout(function() {
+      playState.clearBoard();
+      playState.startGuess();
+    }, 3000);
+  },
+
+  startGuess: function() {
+    game.state.start('guess');
   }
 }

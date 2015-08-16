@@ -3,7 +3,7 @@ var playState = {
   create: function() {
     // Create an empty group of dice to show on screen
     dice = game.add.group();
-    this.rollDice(6, 4);
+    this.rollDice(selectedChallenge.numberOfDice, selectedChallenge.sides);
   },
 
   // Generate a random number between 1 and the chosen number of sides

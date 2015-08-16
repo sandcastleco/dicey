@@ -4,7 +4,7 @@ var menuState = {
 
     var challenges = game.cache.getJSON('challenges');
     var numberOfChallenges = challenges.length;
-    var challengeInfo = game.add.group();
+    challengeInfo = game.add.group();
 
     var music = game.add.audio('theme', 1, true);
     music.play();
@@ -17,25 +17,35 @@ var menuState = {
     }
 
     var startButton = game.add.button(80, 500, '', this.start, this);
-    var startText = game.add.text(0, 0, 'Play selected mode!', { font: '30px Bree', fill: '#FFF'});
+    var startText = game.add.text(0, 0, "Let's get dicey!", { font: '30px Bree', fill: '#FFF'});
     startButton.addChild(startText);
 
   },
 
   createChallengeButton: function(index, challenge) {
-    button = game.add.button(80, ((index + 1) * 50) + 100, '', this.showInfo, this);
+    button = game.add.button(80, ((index + 1) * 50) + 100, '', this.selectChallenge, this);
     button.challenge = challenge;
     text = game.add.text(0, 0, challenge.name, { font: '20px Bree', fill: '#FFF'});
     button.addChild(text);
   },
 
-  showInfo: function(item) {
-    challengeInfo.destroy(true, true);
-    challenge = item.challenge;
-    var title = game.add.text(300, 150, challenge.name, { font: '20px Bree', fill: '#FFF'});
-    var description = game.add.text(300, 200, challenge.description, { font: '20px Bree', fill: '#FFF'});
+  updateDescription: function() {
+    this.clearInfo();
+
+    var title = game.add.text(300, 150, selectedChallenge.name, { font: '20px Bree', fill: '#FFF'});
+    var description = game.add.text(300, 200, selectedChallenge.description, { font: '20px Bree', fill: '#FFF'});
+
     challengeInfo.add(title);
     challengeInfo.add(description);
+  },
+
+  clearInfo: function() {
+    challengeInfo.destroy(true, true);
+  },
+
+  selectChallenge: function(item) {
+    selectedChallenge = item.challenge;
+    this.updateDescription();
   },
 
   start: function() {

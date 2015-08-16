@@ -49,7 +49,6 @@ var playState = {
 
   startTimer: function() {
     setTimeout(function() {
-      playState.clearBoard();
       playState.startGuess();
     }, 3000);
   },

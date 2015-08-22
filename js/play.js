@@ -5,6 +5,8 @@ var playState = {
     results = [];
     // Create an empty group of dice to show on screen
     dice = game.add.group();
+    var title = game.add.text(80, 80, selectedChallenge.name, { font: '40px Bree', fill: '#FFF'});
+    var description = game.add.text(80, 140, selectedChallenge.description, { font: '20px Bree', fill: '#FFF'});
     var rollButton = game.add.button(80, 500, '', this.rollDice, this);
     var rollText = game.add.text(0, 0, "Roll 'em!", { font: '30px Bree', fill: '#FFF'});
     rollButton.addChild(rollText);

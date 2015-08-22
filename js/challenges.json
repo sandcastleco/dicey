@@ -1,14 +1,37 @@
 [
   {
-    "name": "Six Four-Sided Dice",
-    "description": "Estimate the sum of six four-sided dice in under 3 seconds.",
+    "name": "Blank Six-Sided Dice",
+    "description": "Estimate how many dice are rolled in 3 seconds.",
+    "numberOfSeconds": 3,
+    "numberOfDice": 10,
+    "numberOfSides": 6
+  },
+  {
+    "name": "Four-Sided Dice",
+    "description": "Estimate the sum of the four-sided dice in 5 seconds.",
+    "numberOfSeconds": 5,
     "numberOfDice": 6,
     "numberOfSides": 4
   },
   {
-    "name": "Many Six-Sided Dice",
-    "description": "Estimate how many dice there are total in under 4 seconds.",
+    "name": "Six-Sided Dice",
+    "description": "Estimate the sum of the six-sided dice in 5 seconds.",
+    "numberOfSeconds": 5,
     "numberOfDice": 25,
     "numberOfSides": 6
+  },
+  {
+    "name": "Eight-Sided Dice",
+    "description": "Estimate the sum of the eight-sided dice in 5 seconds.",
+    "numberOfSeconds": 5,
+    "numberOfDice": 8,
+    "numberOfSides": 8
+  },
+  {
+    "name": "4s, 6s, and 8s",
+    "description": "Estimate the sum of the four, six, and eight-sided dice in 5 seconds.",
+    "numberOfSeconds": 5,
+    "numberOfDice": 10,
+    "numberOfSides": 8
   }
 ]

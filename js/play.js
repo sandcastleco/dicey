@@ -1,6 +1,8 @@
 var playState = {
 
   create: function() {
+    timerLength = selectedChallenge.numberOfSeconds * 1000;
+    results = [];
     // Create an empty group of dice to show on screen
     dice = game.add.group();
     var rollButton = game.add.button(80, 500, '', this.rollDice, this);
@@ -11,12 +13,21 @@ var playState = {
   // Generate a random number between 1 and the chosen number of sides
   generateNumber: function(numberOfSides) {
     number = Math.floor((Math.random() * numberOfSides) + 1);
+    this.saveResult(results, number);
     return number;
   },
 
   // Save a result to an array
   saveResult: function(array, result) {
     array.push(result);
+  },
+
+  // Add up all of the dice
+  calculateTotal: function(array) {
+    total = array.reduce(function(a, b) {
+      return a + b;
+    });
+    console.log(total);
   },
 
   // Add the die to the screen in an evenly spaced position and add it to the dice group
@@ -43,14 +54,14 @@ var playState = {
       this.generateNumber(selectedChallenge.numberOfSides);
       this.showDie(selectedChallenge.numberOfDice, i, number);
     }
-
+    this.calculateTotal(results);
     this.startTimer();
   },
 
   startTimer: function() {
     setTimeout(function() {
       playState.startGuess();
-    }, 3000);
+    }, timerLength);
   },
 
   startGuess: function() {

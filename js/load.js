@@ -22,6 +22,6 @@ var loadState = {
 
   create: function() {
     game.stage.backgroundColor = "#127629";
-    game.state.start('menu');
+    game.state.start('landing');
   }
 };

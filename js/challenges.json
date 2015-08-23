@@ -11,7 +11,8 @@
     "description": "Estimate the sum of the four-sided dice in 5 seconds.",
     "numberOfSeconds": 5,
     "numberOfDice": 6,
-    "numberOfSides": 4
+    "numberOfSides": 4,
+    "question": "What was the sum of the dice?"
   },
   {
     "name": "Six-Sided Dice",

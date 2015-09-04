@@ -21,7 +21,7 @@ var loadState = {
   },
 
   create: function() {
-    game.stage.backgroundColor = "#127629";
+    game.stage.backgroundColor = "#64BC46";
     game.state.start('landing');
   }
 };

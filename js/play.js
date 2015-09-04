@@ -3,18 +3,37 @@ var playState = {
   create: function() {
     timerLength = selectedChallenge.numberOfSeconds * 1000;
     results = [];
+
+    poly = new Phaser.Polygon();
+    poly.setTo([50, 50, 810, -10, 750, 550, -10, 610]);
+
+    graphics = game.add.graphics(0, 0);
+
+    graphics.beginFill(0xFFFFFF);
+    graphics.drawPolygon(poly.points);
+    graphics.endFill();
+
+    var title = game.add.text(game.world.centerX, 125, selectedChallenge.name, { font: 'bold 45px museo-sans-rounded', fill: '#64BC46'});
+    title.anchor.set(0.5);
+    var description = game.add.text(game.world.centerX, 180, selectedChallenge.description, { font: '25px museo-sans-rounded', fill: '#7E7E7E'});
+    description.anchor.set(0.5);
+    var rollButton = game.add.button(game.world.centerX, 500, '', this.rollDice, this);
+    var rollText = game.add.text(0, 0, "Roll 'em!", { font: 'bold 30px museo-sans-rounded', fill: '#64BC46'});
+    rollButton.addChild(rollText);
+    var backButton = game.add.button(100, 500, '', this.back, this);
+    var backText = game.add.text(0, 0, "Back", { font: 'bold 30px museo-sans-rounded', fill: '#64BC46'});
+    backButton.addChild(backText);
+
+
     // Create an empty group of dice to show on screen
     dice = game.add.group();
     text = game.add.group();
-    var title = game.add.text(80, 80, selectedChallenge.name, { font: '40px Bree', fill: '#FFF'});
-    var description = game.add.text(80, 140, selectedChallenge.description, { font: '20px Bree', fill: '#FFF'});
-    var rollButton = game.add.button(80, 500, '', this.rollDice, this);
-    var rollText = game.add.text(0, 0, "Roll 'em!", { font: '30px Bree', fill: '#FFF'});
-    rollButton.addChild(rollText);
+    text.angle = -4;
 
     text.add(title);
     text.add(description);
     text.add(rollButton);
+    text.add(backButton);
   },
 
   // Generate a random number between 1 and the chosen number of sides
@@ -49,6 +68,7 @@ var playState = {
   clearBoard: function() {
     text.destroy();
     dice.destroy(true, true);
+    graphics.destroy();
   },
 
   // Roll a chosen number of X-sided dice
@@ -72,5 +92,9 @@ var playState = {
 
   startGuess: function() {
     game.state.start('guess');
+  },
+
+  back: function() {
+    game.state.start('menu');
   }
 }

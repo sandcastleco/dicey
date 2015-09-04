@@ -9,7 +9,7 @@ var menuState = {
     var music = game.add.audio('theme', 1, true);
     music.play();
 
-    var nameLabel = game.add.text(game.world.centerX - 60, 50, 'Dicey', { font: '50px Bree', fill: '#FFF'});
+    var nameLabel = game.add.text(game.world.centerX - 60, 50, 'Dicey', { font: 'bold 50px museo-sans-rounded', fill: '#FFF'});
 
     for (i = 0; i < numberOfChallenges; i++) {
       challenge = challenges[i];
@@ -17,7 +17,7 @@ var menuState = {
     }
 
     var startButton = game.add.button(80, 500, '', this.start, this);
-    var startText = game.add.text(0, 0, "Let's get dicey!", { font: '30px Bree', fill: '#FFF'});
+    var startText = game.add.text(0, 0, "Let's get dicey!", { font: '30px museo-sans-rounded', fill: '#FFF'});
     startButton.addChild(startText);
 
   },
@@ -25,7 +25,7 @@ var menuState = {
   createChallengeButton: function(index, challenge) {
     button = game.add.button(80, ((index + 1) * 50) + 100, '', this.selectChallenge, this);
     button.challenge = challenge;
-    text = game.add.text(0, 0, challenge.name, { font: '20px Bree', fill: '#FFF'});
+    text = game.add.text(0, 0, challenge.name, { font: '20px museo-sans-rounded', fill: '#FFF'});
     button.addChild(text);
   },
 

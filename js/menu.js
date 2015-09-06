@@ -6,8 +6,8 @@ var menuState = {
     var numberOfChallenges = challenges.length;
     challengeInfo = game.add.group();
 
-    var music = game.add.audio('theme', 1, true);
-    music.play();
+    //var music = game.add.audio('theme', 1, true);
+    //music.play();
 
     var nameLabel = game.add.text(game.world.centerX, 100, 'Dicey', { font: 'bold 50px museo-sans-rounded', fill: '#FFF'});
     nameLabel.anchor.set(0.5);

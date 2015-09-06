@@ -16,7 +16,7 @@ var loadState = {
     game.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
     game.load.image('button', 'img/button.png');
 	// adding a test comment
-    game.load.audio('theme', ['audio/dicey-1.mp3']);
+    game.load.audio('theme', ['audio/dicey-2.mp3']);
     game.load.json('challenges', 'js/challenges.json');
 
   },

@@ -2,7 +2,6 @@ var menuState = {
 
   create: function() {
 
-    var challenges = game.cache.getJSON('challenges');
     var numberOfChallenges = challenges.length;
     challengeInfo = game.add.group();
 

@@ -15,6 +15,6 @@ var landingState = {
   },
 
   start: function() {
-    game.state.start('menu');
+    game.state.start('challenge');
   }
 };

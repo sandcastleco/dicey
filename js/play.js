@@ -1,6 +1,9 @@
 var playState = {
 
   create: function() {
+
+    makeBackground();
+    
     timerLength = selectedChallenge.numberOfSeconds * 1000;
     results = [];
 
@@ -34,7 +37,7 @@ var playState = {
   showDie: function(numberOfDice, dieID, number) {
     spacing = game.width/numberOfDice;
     height = Math.random() * game.height;
-    var die = game.add.text(dieID * spacing, height, number, { fill: '#FFF' });
+    var die = game.add.text(dieID * spacing, height, number, { fill: '#eb8f3d' });
     dice.add(die);
   },
 
@@ -42,7 +45,6 @@ var playState = {
   clearBoard: function() {
     text.destroy();
     dice.destroy(true, true);
-    graphics.destroy();
   },
 
   // Roll a chosen number of X-sided dice

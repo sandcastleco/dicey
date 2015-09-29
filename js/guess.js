@@ -28,12 +28,9 @@ var guessState = {
 
     function processForm(e) {
       if (e.preventDefault) e.preventDefault();
-        guess = document.getElementById('my-input').value;
-        if (guess == total) {
-          alert("Correct! You win!");
-        } else {
-          alert("Bzzzzt, guess again...");
-        }
+      guess = document.getElementById('my-input').value;
+      this.parentNode.removeChild(this);
+      guessState.start()
 
       /* do what you want with the form */
 
@@ -56,6 +53,10 @@ var guessState = {
     //for (i = 0; i < points.length; i++) {
     //  text = game.add.text((game.world.centerX - 150) + points[i][0] * 40, 200 + [points[i][1]] * 40, '•', { font: '40px museo-sans-rounded', fill: '#808181'});
     //}
+  },
+
+  start: function() {
+    game.state.start('result');
   }
 
 };

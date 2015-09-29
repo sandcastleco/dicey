@@ -1,5 +1,6 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, 'dicey' );
 
+var score = 0;
 var selectedChallenge = {};
 
 game.state.add('boot', bootState);
@@ -9,6 +10,7 @@ game.state.add('challenge', challengeState);
 game.state.add('menu', menuState);
 game.state.add('play', playState);
 game.state.add('guess', guessState);
+game.state.add('result', resultState);
 game.state.start('boot');
 
 function makeBackground() {
@@ -41,6 +43,12 @@ function makeBackground() {
   bmd.ctx.fill();
   bmd.ctx.closePath();
 
+  scoreLine = game.add.text(0, 570, "Score: " + score, { font: 'bold 20px museo-sans-rounded', fill: '#808181'});
+
   var credits = game.add.text(800, 610, "Sandcastle Games", { font: 'bold 20px museo-sans-rounded', fill: '#808181'});
   credits.anchor.set(1);
+}
+
+function updateScore() {
+  scoreLine._text = "Score: " + score;
 }

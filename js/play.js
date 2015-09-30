@@ -2,9 +2,7 @@ var playState = {
 
   create: function() {
 
-    makeBackground();
-    
-    timerLength = selectedChallenge.numberOfSeconds * 1000;
+    timerLength = selectedVariation.numberOfSeconds * 1000;
     results = [];
 
     // Create an empty group of dice to show on screen
@@ -52,9 +50,9 @@ var playState = {
     // Clear everything to make room for the dice
     this.clearBoard();
     // For each die, generate its number based on its number of sides, then show it on the screen and add it to the group of dice
-    for (var i = 0; i < selectedChallenge.numberOfDice; i++) {
+    for (var i = 0; i < selectedVariation.numberOfDice; i++) {
       this.generateNumber(selectedChallenge.numberOfSides);
-      this.showDie(selectedChallenge.numberOfDice, i, number);
+      this.showDie(selectedVariation.numberOfDice, i, number);
     }
     this.calculateTotal(results);
     this.startTimer();

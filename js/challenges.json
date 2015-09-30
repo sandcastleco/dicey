@@ -9,7 +9,7 @@
   },
   {
     "name": "Four-Sided Dice",
-    "description": "Estimate the sum of the four-sided dice in 5 seconds.",
+    "description": "Estimate the sum of the four-sided dice.",
     "numberOfSeconds": 5,
     "numberOfDice": 6,
     "numberOfSides": 4,
@@ -25,11 +25,19 @@
   },
   {
     "name": "Eight-Sided Dice",
-    "description": "Estimate the sum of the eight-sided dice in 5 seconds.",
-    "numberOfSeconds": 5,
-    "numberOfDice": 8,
+    "description": "Estimate the sum of the eight-sided dice.",
     "numberOfSides": 8,
-    "question": "Question?"
+    "variations": [{
+        "numberOfSeconds": 5,
+        "numberOfDice": 7
+      }, {
+        "numberOfSeconds": 4.5,
+        "numberOfDice": 8
+      }, {
+        "numberOfSeconds": 4,
+        "numberOfDice": 10
+    }],
+    "question": "What was the sum of the dice?"
   },
   {
     "name": "4s, 6s, and 8s",

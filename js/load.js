@@ -4,7 +4,6 @@ var loadState = {
 
     bmd = game.make.bitmapData(800, 600);
     bmd.addToWorld();
-    console.log(bmd.ctx);
     bmd.ctx.beginPath();
     bmd.ctx.moveTo(20, 20);
     bmd.ctx.lineTo(780, 20);
@@ -18,7 +17,7 @@ var loadState = {
     bmd.ctx.fillStyle="#808181";
     bmd.ctx.fill();
     bmd.ctx.closePath();
-    
+
     var loadingLabel = game.add.text(80, 150, 'loading...', {font: '30px Courier', fill: '#ffffff' });
 
     WebFontConfig = {

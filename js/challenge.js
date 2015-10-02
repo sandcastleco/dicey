@@ -47,8 +47,6 @@ var challengeState = {
 
   selectVariation: function(item) {
     selectedVariation = item.variation;
-    console.log(selectedVariation.numberOfDice);
-    console.log(selectedVariation.numberOfSeconds);
   },
 
   makeRollButton: function() {

@@ -4,7 +4,12 @@ var resultState = {
 
     makeBackground();
 
-    if (guess == total) {
+    console.log(timerUp);
+
+    if (timerUp) {
+      var result = "Too slow...";
+      score = 0;
+    } else if (guess == total) {
       var result = "Correct! You win!"
       score += 1;
     } else {

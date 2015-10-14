@@ -12,6 +12,8 @@ var playState = {
 
     prompt = game.add.text(game.world.centerX, game.world.centerY, "Bash the SPACEBAR to roll", { fill: '#eb8f3d' });
     prompt.anchor.set(0.5);
+    prompt.alpha = 0;
+    game.add.tween(prompt).to( { alpha: 1 }, 1000, "Linear", true);
 
     spacebar = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
     spacebar.onDown.add(this.rollDice, this);
@@ -42,13 +44,14 @@ var playState = {
   showDie: function(numberOfDice, dieID, number) {
     spacing = game.width/numberOfDice;
     height = Math.random() * (game.height - 30);
-    var die = game.add.text(dieID * spacing, height, number, { fill: '#eb8f3d' });
+    var die = game.add.text(dieID * spacing, -100, number, { fill: '#eb8f3d' });
+    game.add.tween(die).to({y: height}, 1000, Phaser.Easing.Bounce.Out, true, 1000 * Math.random());
     dice.add(die);
   },
 
   // Remove the dice in the dice group
   clearBoard: function() {
-    prompt.destroy();
+    game.add.tween(prompt).to( { alpha: 0 }, 500, "Linear", true);
     dice.destroy(true, true);
   },
 

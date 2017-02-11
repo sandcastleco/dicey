@@ -8,13 +8,15 @@
 * GET '/menu'
   * Load level list
   * Render menu.html
-* GET '/level/:levelId/challenge/:challengeId'
+* GET '/level/:levelId/:challengeId'
   * Calculate result
   * Save result
   * Render challenge.html
-* GET '/level/:levelId/challenge/:challengeId/guess'
+* GET '/level/:levelId/:challengeId/guess'
   * Render guess.html
-* POST '/level/:levelId/challenge/:challengeId/guess'
+* GET '/level/:levelId/:challengeId/result'
+  * Render result.html
+* POST '/level/:levelId/:challengeId/guess'
   * Save score
   * Render result.html
 
@@ -39,6 +41,7 @@
 * How to keep track of answer?
 * Keep track of user data with cookies for now?
 * Protect score updating?
+* Don't allow guess or result until user is done? How to keep track of status? Maybe a temporary session thing?
 
 ### Flow
 

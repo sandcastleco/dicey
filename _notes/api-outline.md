@@ -26,12 +26,15 @@
 
 ### Properties
 
+* ID
 * Challenges
+* Name
 
 ## Challenge
 
 ### Properties
 
+* ID
 * Parameters
   * Time
   * Dice

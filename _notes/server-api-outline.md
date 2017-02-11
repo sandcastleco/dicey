@@ -5,6 +5,9 @@
 * GET '/'
   * Create/load user data
   * Render start-screen.html
+* GET '/menu'
+  * Load level list
+  * Render menu.html
 * GET '/level/:levelId/challenge/:challengeId'
   * Calculate result
   * Save result

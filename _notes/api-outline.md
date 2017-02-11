@@ -8,6 +8,7 @@
 
 ### Methods
 
+* loadData
 * checkUserLevel
 * saveScore
 * getScore

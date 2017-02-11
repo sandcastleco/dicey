@@ -2,7 +2,11 @@
 
 ## Game
 
+### Properties
+
 * Levels
+
+### Methods
 
 * checkUserLevel
 * saveScore
@@ -12,20 +16,28 @@
 
 ## Die
 
+### Properties
+
 * Number of sides
 * Result
 
 ## Level
 
+### Properties
+
 * Challenges
 
 ## Challenge
+
+### Properties
 
 * Parameters
   * Time
   * Dice
   * Attempts
 * Answer
+
+### Methods
 
 * startChallenge
   * rollDice
@@ -34,11 +46,17 @@
 
 ## Player
 
+### Properties
+
 * High score
 * Highest level
+
+### Methods
 
 * attemptAnswer
 
 ## Scene
+
+### Properties
 
 * Content

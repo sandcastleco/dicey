@@ -10,12 +10,18 @@
       <h1>Dicey!</h1>
     </header>
 
-    {% block body %}{% endblock %}
+    <div id="main">
+      {% block body %}{% endblock %}
+    </div>
 
     <footer>
-      <p><a href="/menu">Main menu</a></p>
+      <p><a id="main-menu" href="/menu">Main menu</a></p>
       <p><a target="_blank" href="http://sandcastle.co">Sandcastle Games</a></p>
     </footer>
+
+    <script src="/scripts/Game.js"></script>
+    <script src="/scripts/Scene.js"></script>
+    <script src="/scripts/main.js"></script>
 
   </body>
 </html>

@@ -5,6 +5,7 @@
 ### Properties
 
 * Levels
+* Element
 
 ### Methods
 
@@ -64,3 +65,7 @@
 ### Properties
 
 * Content
+
+### Methods
+
+* Draw

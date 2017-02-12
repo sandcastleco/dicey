@@ -7,6 +7,8 @@ nunjucks.configure('app', {
   express: app
 })
 
+app.use(express.static(__dirname + '/public'));
+
 var levels = [
   {
     id: 1,
@@ -34,7 +36,18 @@ var levels = [
   },
   {
     id: 2,
-    name: "Example level 2"
+    name: "Example level 2",
+    challenges: [
+      {
+        id: 1,
+        parameters: {
+          time: 3000,
+          dice: [
+            { type: 6, number: 10 }
+          ]
+        }
+      }
+    ]
   }
 ]
 
@@ -57,6 +70,10 @@ app.get('/level/:levelId/:challengeId/guess', function (req, res) {
 
 app.get('/level/:levelId/:challengeId/result', function (req, res) {
   res.render('views/result.html')
+})
+
+app.get('/api/levels', function(req, res) {
+  res.json(levels);
 })
 
 app.listen(3000, function () {

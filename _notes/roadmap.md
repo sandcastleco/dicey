@@ -2,7 +2,7 @@
 
 ## v0.1.0
 
-- [ ] As a user, I want to start a Dicey game.
+- [x] As a user, I want to start a Dicey game.
 
 ## v0.2.0
 

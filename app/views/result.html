@@ -2,5 +2,11 @@
 
 {% block body %}
   <h2>Result!</h2>
-  <a href="#">Next level</a>
+  {% if win %}
+    <h3>Correct!</h3>
+    <!-- <a href="#">Next level</a> -->
+  {% else %}
+    <h3>Nope...</h3>
+    <!-- <a href="#">Try again</a> -->
+  {% endif %}
 {% endblock %}

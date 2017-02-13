@@ -2,4 +2,12 @@
 
 {% block body %}
   <h2>Guess!</h2>
+
+  <h3>What was the total?</h3>
+
+  <form action="/level/{{ levelId }}/{{ challengeId }}/result" method="GET">
+    <label for="answer">Answer</label>
+    <input id="answer" type="text" name="answer">
+    <button type="submit" content="Answer">
+  </form>
 {% endblock %}

@@ -127,6 +127,6 @@ app.get('/answer', function(req, res) {
   res.json(answer);
 })
 
-app.listen(3000, function () {
+app.listen(process.env.NODE_PORT || 3000, function () {
   console.log('Dicey listening on port 3000!')
 })

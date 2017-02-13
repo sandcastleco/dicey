@@ -4,7 +4,8 @@
   "description": "The amazing dice game",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon app/server.js"
+    "start": "node app/server.js",
+    "dev": "nodemon app/server.js"
   },
   "repository": {
     "type": "git",

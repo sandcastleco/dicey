@@ -6,7 +6,7 @@
 
 ## v0.2.0
 
-- [ ] As a user, I want to play a challenge.
+- [x] As a user, I want to play a challenge.
 - [ ] As a user, I want to play a level.
 
 ## v0.3.0

@@ -32,6 +32,14 @@ function rollDice(dice) {
   return results;
 }
 
+function calculateAnswer(results) {
+  var sum = 0;
+  for (var i = 0; i < results.length; i++) {
+    sum += results[i].result;
+  }
+  return sum;
+}
+
 app.get('/', function (req, res) {
   res.render('views/home.html')
 })
@@ -44,23 +52,16 @@ app.get('/menu', function (req, res) {
 app.get('/level/:levelId/:challengeId', function (req, res) {
   var level = levels[req.params.levelId - 1];
   var challenge = level.challenges[req.params.challengeId - 1];
-  res.locals.results = rollDice(challenge.parameters.dice);
-
-  var total = (function() {
-    var sum = 0;
-    for (var i = 0; i < res.locals.results.length; i++) {
-      var result = res.locals.results[i];
-      sum += result.result;
-    }
-    return sum;
-  })();
+  var results = rollDice(challenge.parameters.dice);
+  var total = calculateAnswer(results);
+  res.locals.results = results;
 
   var options = {
-      maxAge: 1000 * 60 * 15,
-      signed: true
+    maxAge: 1000 * 60 * 15,
+    signed: true
   }
-
   res.cookie('diceyRes', total, options);
+
   res.locals.refresh = {
     time: challenge.parameters.time,
     location: '/level/' + req.params.levelId + '/' + req.params.challengeId + '/guess'
@@ -99,7 +100,18 @@ app.get('/api/level/:levelId/:challengeId', function(req, res) {
   var level = levels[req.params.levelId - 1];
   var challenge = level.challenges[req.params.challengeId - 1];
   var results = rollDice(challenge.parameters.dice);
+  var total = calculateAnswer(results);
+  var options = {
+    maxAge: 1000 * 60 * 15,
+    signed: true
+  }
+  res.cookie('diceyRes', total, options);
   res.json(results);
+})
+
+app.get('/answer', function(req, res) {
+  var answer = req.signedCookies.diceyRes;
+  res.json(answer);
 })
 
 app.listen(3000, function () {

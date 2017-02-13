@@ -16,19 +16,37 @@ challengeScene.rollDice = function(cb) {
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.onload = function() {
     if (xhr.status === 200) {
-      thisChallenge.results = JSON.parse(xhr.responseText)
-      cb(thisChallenge.results);
+      var results = JSON.parse(xhr.responseText)
+      cb(results);
     }
   };
   xhr.send();
 }
 
+challengeScene.updateTimer = function(time) {
+  var timerEl = document.getElementById('timer');
+  timerEl.textContent = time;
+}
+
 challengeScene.draw = function() {
+  var scene = this;
+  var time = this.challengeData.parameters.time;
   game.element.innerHTML += "<h2>Play!</h2>";
   this.rollDice(function(results) {
     for (var i = 0; i < results.length; i++) {
       game.element.innerHTML += results[i].result;
     }
+    game.element.innerHTML += "<p id='timer'></p>";
+    scene.updateTimer(time);
+    var timer = window.setInterval(function() {
+      time--;
+      if (time === 0) {
+        window.clearInterval(timer);
+        game.setScene(guessScene);
+      } else {
+        scene.updateTimer(time);
+      }
+    }, 1000);
   });
 
 }

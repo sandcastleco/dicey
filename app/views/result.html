@@ -4,9 +4,9 @@
   <h2>Result!</h2>
   {% if win %}
     <h3>Correct!</h3>
-    <!-- <a href="#">Next level</a> -->
+    <a href="/level/{{ nextLevelId }}/{{ nextChallengeId }}">Next challenge</a>
   {% else %}
     <h3>Nope...</h3>
-    <!-- <a href="#">Try again</a> -->
+    <a href="/level/{{ levelId }}/{{ challengeId }}">Try again</a>
   {% endif %}
 {% endblock %}

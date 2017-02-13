@@ -76,10 +76,23 @@ app.get('/level/:levelId/:challengeId/guess', function (req, res) {
 })
 
 app.get('/level/:levelId/:challengeId/result', function (req, res) {
+  res.locals.levelId = req.params.levelId;
+  res.locals.challengeId = req.params.challengeId;
   var answer = req.signedCookies.diceyRes;
   res.locals.win = false;
   if (req.query.answer == answer) {
     res.locals.win = true;
+    var level = levels[req.params.levelId - 1];
+    if (req.params.challengeId == level.challenges.length) {
+      if (req.params.levelId == levels.length) {
+        res.redirect('/menu');
+      }
+      res.locals.nextLevelId = parseInt(req.params.levelId) + 1;
+      res.locals.nextChallengeId = 1;
+    } else {
+      res.locals.nextLevelId = req.params.levelId;
+      res.locals.nextChallengeId = parseInt(req.params.challengeId) + 1;
+    }
   }
   var options = {
       maxAge: 1000 * 60 * 15,

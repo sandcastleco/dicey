@@ -7,7 +7,7 @@
 ## v0.2.0
 
 - [x] As a user, I want to play a challenge.
-- [ ] As a user, I want to play a level.
+- [x] As a user, I want to play a level.
 
 ## v0.3.0
 
@@ -24,3 +24,6 @@
 - [ ] As a user, I want to create an account.
 - [ ] As a user, I want to log in.
 - [ ] As a user, I want to log out.
+- [ ] As a user, I want to see my progress.
+- [ ] As a user, I want to unlock achievements/badges.
+- [ ] As a user, I want to be notified if I complete all challenges.

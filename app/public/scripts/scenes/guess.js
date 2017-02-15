@@ -31,6 +31,8 @@ guessScene.drawForm = function() {
   var answerInput = document.getElementById("answer");
   guessForm.addEventListener('submit', function(e) {
     e.preventDefault();
+
+    // check answer on the server in the ajax request and return true or false?
     getAnswer(function(answer) {
       console.log(answerInput.value);
       var win = false;

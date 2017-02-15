@@ -1,5 +1,7 @@
 var challengeScene = new Scene();
 
+challengeScene.dice = [];
+
 challengeScene.init = function(opts) {
   game.currentLevel = opts.level;
   game.currentChallenge = opts.challenge;
@@ -28,14 +30,28 @@ challengeScene.updateTimer = function(time) {
   timerEl.textContent = time;
 }
 
+challengeScene.drawDice = function() {
+  for (var i = 0; i < this.dice.length; i++) {
+    this.dice[i].draw();
+  }
+}
+
 challengeScene.draw = function() {
   var scene = this;
   var time = this.challengeData.parameters.time;
   game.element.innerHTML += "<h2>Play!</h2>";
   this.rollDice(function(results) {
+    scene.dice = [];
+    var dieX = -3;
     for (var i = 0; i < results.length; i++) {
+      var die = new Die(results[i].type, null, dieX);
+      dieX += 3;
+      scene.dice.push(die);
       game.element.innerHTML += results[i].result + ' ';
     }
+
+    scene.drawDice();
+
     game.element.innerHTML += "<p id='timer'></p>";
     scene.updateTimer(time);
     var timer = window.setInterval(function() {

@@ -8,8 +8,7 @@ var levels = [
         parameters: {
           time: 3,
           dice: [
-            { type: 12, number: 3 },
-            { type: 6, number: 3 }
+            { type: 8, number: 3 }
           ]
         }
       },
@@ -18,7 +17,7 @@ var levels = [
         parameters: {
           time: 5,
           dice: [
-            { type: 6, number: 15 }
+            { type: 6, number: 5 }
           ]
         }
       }

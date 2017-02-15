@@ -1,5 +1,11 @@
 # API Outline
 
+## Canvas
+
+### Methods
+
+* Create element
+
 ## Game
 
 ### Properties
@@ -21,7 +27,14 @@
 ### Properties
 
 * Number of sides
+* Color
 * Result
+
+### Methods
+
+* draw
+* createMesh
+* init
 
 ## Level
 

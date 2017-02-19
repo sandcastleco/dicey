@@ -4,7 +4,10 @@
 
 ### Methods
 
-* Create element
+* draw
+* initCamera
+* initWorld
+* initLights
 
 ## Game
 
@@ -29,12 +32,27 @@
 * Number of sides
 * Color
 * Result
+* Mass
 
 ### Methods
 
 * draw
 * createMesh
+* createBody
 * init
+
+## Table
+
+### Properties
+
+* Width
+* Height
+* Color
+* Mass
+
+### Methods
+
+* draw
 
 ## Level
 

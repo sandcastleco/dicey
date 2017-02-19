@@ -1,6 +1,7 @@
 function Game(element) {
   this.element = document.getElementById(element);
   this.levels = [];
+  this.canvas = new Canvas();
 }
 
 Game.prototype = {
@@ -29,6 +30,7 @@ Game.prototype = {
   init: function(scene) {
     console.log("Dicey!");
     this.loadData();
-    this.setScene(scene)
+    this.canvas.draw();
+    this.setScene(scene);
   }
 }

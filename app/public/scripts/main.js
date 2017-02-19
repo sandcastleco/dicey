@@ -1,12 +1,10 @@
 window.game = window.game || {};
-window.canvas = window.canvas || {};
 
 window.onload = function() {
-  canvas = new Canvas();
-  canvas.draw();
-  
   game = new Game("main");
   game.init(home);
+
+  var table = new Table();
 
   var mainMenuButton = document.getElementById('main-menu');
   mainMenuButton.addEventListener("click", function(e) {

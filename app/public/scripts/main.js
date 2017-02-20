@@ -7,8 +7,6 @@ function addNewDie(size) {
   dice.push(die);
 }
 
-// why aren't shadows working on the table?!
-
 window.onload = function() {
   game = new Game("main");
   game.init(home);
@@ -20,4 +18,11 @@ window.onload = function() {
     e.preventDefault();
     game.setScene(menu);
   });
+
+  var diceButtons = document.getElementsByClassName('dice-button');
+  for (var i = 0; i < diceButtons.length; i++) {
+    diceButtons[i].addEventListener('click', function() {
+      addNewDie(this.dataset.type);
+    });
+  }
 }

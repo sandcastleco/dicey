@@ -39,8 +39,8 @@ Canvas.prototype = {
 
     function updatePhysics() {
       game.canvas.world.step(timeStep);
-      for (var i = 0; i < challengeScene.dice.length; i++) {
-        var die = challengeScene.dice[i];
+      for (var i = 0; i < dice.length; i++) {
+        var die = dice[i];
         die.mesh.position.copy(die.body.position);
         die.mesh.quaternion.copy(die.body.quaternion);
       }

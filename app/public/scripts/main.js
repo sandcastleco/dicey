@@ -1,5 +1,14 @@
 window.game = window.game || {};
 
+var dice = [];
+
+function addNewDie(size) {
+  var die = new Die(size);
+  dice.push(die);
+}
+
+// why aren't shadows working on the table?!
+
 window.onload = function() {
   game = new Game("main");
   game.init(home);

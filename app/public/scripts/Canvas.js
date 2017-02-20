@@ -6,13 +6,15 @@ Canvas.prototype = {
   initWorld: function() {
     this.scene = new THREE.Scene();
     this.renderer = new THREE.WebGLRenderer( {antialias: true});
+    this.renderer.shadowMap.enabled = true;
+    this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.setClearColor( 0xffffff );
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(this.renderer.domElement);
-    // this.world = new CANNON.World();
-    // this.world.gravity.set(0, 0, -9.82);
-    // this.world.broadphase = new CANNON.NaiveBroadphase();
-    // this.world.solver.iterations = 10;
+    this.world = new CANNON.World();
+    this.world.gravity.set(0, 0, -9.82);
+    this.world.broadphase = new CANNON.NaiveBroadphase();
+    this.world.solver.iterations = 10;
   },
   initLights: function() {
     var light = new THREE.PointLight( 0xffffff, 1, 100 );
@@ -32,8 +34,21 @@ Canvas.prototype = {
   },
   initAction: function() {
     var canvas = this;
+
+    var timeStep = 1 / 60;
+
+    function updatePhysics() {
+      game.canvas.world.step(timeStep);
+      for (var i = 0; i < dice.length; i++) {
+        var die = dice[i];
+        die.mesh.position.copy(die.body.position);
+        die.mesh.quaternion.copy(die.body.quaternion);
+      }
+
+    }
     function render() {
       requestAnimationFrame(render);
+      updatePhysics();
       canvas.renderer.render(canvas.scene, canvas.camera);
     }
     render();

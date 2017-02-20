@@ -6,6 +6,14 @@ function Table(width, height, color) {
 }
 
 Table.prototype = {
+  createBody: function() {
+    var groundBody = new CANNON.Body({
+      mass: 0
+    });
+    var groundShape = new CANNON.Plane();
+    groundBody.addShape(groundShape);
+    game.canvas.world.addBody(groundBody);
+  },
   draw: function() {
     var planeGeometry = new THREE.PlaneGeometry( this.width, this.height, 32, 32 );
     var planeMaterial = new THREE.MeshPhongMaterial( { color: this.color } )
@@ -14,6 +22,7 @@ Table.prototype = {
     game.canvas.scene.add( table );
   },
   init: function() {
+    this.createBody();
     this.draw();
   }
 }

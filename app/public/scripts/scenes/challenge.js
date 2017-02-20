@@ -44,7 +44,7 @@ challengeScene.draw = function() {
     scene.dice = [];
     var dieX = -3;
     for (var i = 0; i < results.length; i++) {
-      var die = new Die(results[i].type, null, dieX);
+      var die = new Die(results[i].type, null, dieX, 0, 10);
       dieX += 3;
       scene.dice.push(die);
       game.element.innerHTML += results[i].result + ' ';
@@ -53,16 +53,16 @@ challengeScene.draw = function() {
     scene.drawDice();
 
     game.element.innerHTML += "<p id='timer'></p>";
-    scene.updateTimer(time);
-    var timer = window.setInterval(function() {
-      time--;
-      if (time === 0) {
-        window.clearInterval(timer);
-        game.setScene(guessScene);
-      } else {
-        scene.updateTimer(time);
-      }
-    }, 1000);
+    // scene.updateTimer(time);
+    // var timer = window.setInterval(function() {
+    //   time--;
+    //   if (time === 0) {
+    //     window.clearInterval(timer);
+    //     game.setScene(guessScene);
+    //   } else {
+    //     scene.updateTimer(time);
+    //   }
+    // }, 1000);
   });
 
 }

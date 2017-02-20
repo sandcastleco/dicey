@@ -5,7 +5,7 @@ function Die(numberOfSides, color, x, y, z) {
   this.geom = diceGeom['d' + numberOfSides];
   this.x = x || 0;
   this.y = y || 0;
-  this.z = z || 15;
+  this.z = z || 10;
   this.init();
 }
 
@@ -13,7 +13,6 @@ Die.prototype = {
   createShape: function() {
     var vertices = [];
     var faces = [];
-    // var cv = new Array(vertices.length), cf = new Array(faces.length);
     for (var i = 0; i < this.geom.vertices.length; i++) {
       var vertex = this.geom.vertices[i];
       vertices.push(new CANNON.Vec3(vertex.x, vertex.y, vertex.z));
@@ -33,7 +32,10 @@ Die.prototype = {
     this.body.addShape(shape);
     this.body.angularVelocity.set(1, 2, 1);
     this.body.angularDamping = 0.5;
-    this.body.position.z = 10;
+    this.body.position.x = this.x;
+    this.body.position.y = this.y;
+    this.body.position.z = this.z;
+    console.log(this.body.position);
     game.canvas.world.addBody(this.body);
   },
 
@@ -46,8 +48,9 @@ Die.prototype = {
     this.mesh = new THREE.Mesh( geom, material );
     this.mesh.castShadow = true;
     this.mesh.receiveShadow = true;
-    this.mesh.position.z = 1;
-    this.mesh.rotation.y = 1;
+    this.mesh.position.x = this.x;
+    this.mesh.position.y = this.y;
+    this.mesh.position.z = this.z;
   },
 
   draw: function() {

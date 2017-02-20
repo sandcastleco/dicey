@@ -32,7 +32,9 @@ var levels = [
         parameters: {
           time: 3,
           dice: [
-            { type: 6, number: 10 }
+            { type: 6, number: 2 },
+            { type: 8, number: 2 },
+            { type: 20, number: 2 }
           ]
         }
       }
